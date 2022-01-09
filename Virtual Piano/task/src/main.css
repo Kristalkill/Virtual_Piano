@@ -1,31 +1,89 @@
-* {
-    box-sizing: content-box;
-}
-
 body {
-    margin:0;
-    background: #06ff4f
+    background: #1b1b1e;
 }
 
 .container {
-    display: flex;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    margin: 0;
+    width: 960px;
+    height: 300px;
+    position: absolute; /*Can also be `fixed`*/
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    /*Solves a problem in which the content is being cut when the div is smaller than its' wrapper:*/
+    max-width: 100%;
+    max-height: 100%;
 }
-.container kbd {
+
+.black-keys {
+    width: 960px;
+    display: grid;
+    grid-template-columns: repeat(42, 1fr);
+    height: 66%;
+    justify-items: center;
+}
+
+.black-keys kbd {
+    width: 58px;
+    background: black;
+    border: 1px solid #fff;
+    border-radius: 0 0 4px 4px;
+    cursor: pointer;
+    top: -299px;
+    position: relative;
+    z-index: 1;
+    border-top: none;
+    color: white;
+}
+
+
+.black-keys kbd.W {
+    grid-column: 6 / span 2;
+}
+
+.black-keys kbd.E {
+    grid-column: 12 / span 3;
+}
+
+.black-keys kbd.T {
+    grid-column: 25 / span 2;
+}
+
+.black-keys kbd.Y {
+    grid-column: 31 / span 2;
+}
+
+.black-keys kbd.U {
+    grid-column: 37 / span 1;
+}
+
+
+.white-keys {
+    width: 960px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 300px;
+}
+
+.white-keys kbd {
+    background: #fff;
+    border: 1px solid #1b1b1e;
+    border-radius: 0 0 6px 6px;
+}
+
+kbd {
+    cursor: pointer;
+}
+
+kbd:active, kbd:focus {
+    border: 3px solid #4fb7ec;
+    outline: rgba(225, 225, 225, 0);
+}
+
+kbd {
+    font-size: 1.75em;
     display: flex;
-    background: white;
-    height:12em;
-    width:4em;
-    margin:0 0 0 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
-    align-items: flex-end;
+    align-items: end;
     justify-content: center;
-    border: 1px solid #000000;
-    box-shadow:-1px 0 0 rgba(255,255,255,0.8) inset,0 0 5px #ccc inset,0 0 3px rgba(0,0,0,0.2);
 }
